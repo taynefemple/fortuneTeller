@@ -1,4 +1,5 @@
 const app = require('commander');
+const { prompt } = require('inquirer')
 const { presentNumbers, pickedNumber, readFortune } = require('./logic')
 
 app
@@ -6,4 +7,5 @@ app
   .description('Playground fortune teller');
 
 app
-  .command()
+  .command('fortune')
+  .
