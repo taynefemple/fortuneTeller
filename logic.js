@@ -15,16 +15,17 @@ const readFortune = (num) => {
 
 const pickedNumber = (num) => {
   let sel;
-  num % 2 ? sel = numbers.evens : sel = numbers.odds
+  num % 2 === 0 ? sel = numbers.evens : sel = numbers.odds;
   let counter = false;
   const firstTime = () => {
     if (!counter) {
       rl.question('Pick a number: ' + sel.join(', ') + '\n', (chosen) => {
         counter = !counter;
+        chosen % 2 === 0 ? sel = numbers.evens : sel = numbers.odds;
         firstTime();
       })
     } else {
-      rl.question('Select a number to reveal your ' + chalk.green('fortune: ') + sel + '\n', (chosen) => {
+      rl.question('Select a number to reveal your ' + chalk.green('fortune: ') + sel.join(', ') + '\n', (chosen) => {
         player.play('./assets/clip2.mp3', function (err) {
           if (err) throw err
         })
@@ -32,7 +33,7 @@ const pickedNumber = (num) => {
       })
     }
   }
-  return firstTime();
+  return firstTime(num);
 };
 
 const presentColors = () => {
