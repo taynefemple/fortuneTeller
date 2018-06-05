@@ -1,11 +1,13 @@
 const app = require('commander');
 const { prompt } = require('inquirer')
-const { presentNumbers, pickedNumber, readFortune } = require('./logic')
+const { presentNumbers, pickedNumber, readFortune, fortuneTeller } = require('./logic')
 
-app
-  .version('0.0.1')
-  .description('Playground fortune teller');
+// app
+//   .version('0.0.1')
+//   .description('Playground fortune teller');
 
-app
-  .command('fortune')
-  .
+// app
+//   .command('fortune')
+//   .
+
+fortuneTeller();
