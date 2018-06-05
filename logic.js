@@ -1,6 +1,11 @@
 const readline = require('readline');
+const chalk = require('chalk')
+const player = require('play-sound')(opts = {})
+// const clip = require('./assets/clip')
 
-const colors = ['amber', 'blue', 'green', 'violet'];
+
+const colors = [chalk.yellow('amber'), chalk.blue('blue'), chalk.greenBright('green'), chalk.magenta('violet')];
+const colorStrings = ['amber', 'blue', 'green', 'violet']
 
 const numbers = {
   odds: [2, 7, 4, 1],
@@ -40,7 +45,7 @@ const pickedNumber = (num) => {
         firstTime();
       })
     } else {
-      rl.question('Choose your fortune wisely: ' + sel + '\n', (chosen) => {
+      rl.question('Select a number for your ' + chalk.green('fortune') + sel + '\n', (chosen) => {
         readFortune(chosen)
       })
     }
@@ -55,8 +60,8 @@ const pickedNumber = (num) => {
 // };
 
 const presentColors = () => {
-  rl.question('Pick a color so we may begin...: ' + colors.join(', ') + '\n', (color) => {
-    if (colors.includes(color.toLowerCase())) {
+  rl.question('Pick a color so we may begin divining your ' + chalk.green('fortune') + '...: ' + colors.join(', ') + '\n', (color) => {
+    if (colorStrings.includes(color.toLowerCase())) {
       pickedNumber(color.length);
     }
     else {
@@ -67,6 +72,10 @@ const presentColors = () => {
 };
 
 const fortuneTeller = () => {
+  console.log(chalk.red('SUMMONING THE SPIRITS TO DIVINE YOUR FORTUNE!'))
+  player.play('./assets/clip.mp3', function (err) {
+    if (err) throw err
+  })
   presentColors();
 }
 
