@@ -30,22 +30,29 @@ const readFortune = (num) => {
 };
 
 const pickedNumber = (num) => {
-  if (num % 2) {
-    rl.question('Pick a number: ' + numbers.evens, (chosen) => {
-      readFortune(chosen);
-    })
-  } else {
-    rl.question('Pick a number: ' + numbers.odds, (chosen) => {
-      readFortune(chosen)
-    })
+  let sel;
+  num % 2 ? sel = numbers.evens : sel = numbers.odds
+  let counter = false;
+  const firstTime = () => {
+    if (!counter) {
+      rl.question('Pick a number: ' + sel.join(', ') + '\n', (chosen) => {
+        counter = !counter;
+        firstTime();
+      })
+    } else {
+      rl.question('Choose your fortune wisely: ' + sel + '\n', (chosen) => {
+        readFortune(chosen)
+      })
+    }
   }
+  return firstTime();
 };
 
-const presentNumbers = () => {
-  rl.question('Pick a number', (num) => {
-    pickedNumber(num);
-  })
-};
+// const presentNumbers = () => {
+//   rl.question('Pick a number', (num) => {
+//     pickedNumber(num);
+//   })
+// };
 
 const presentColors = () => {
   rl.question('Pick a color so we may begin...: ' + colors.join(', ') + '\n', (color) => {
@@ -63,4 +70,4 @@ const fortuneTeller = () => {
   presentColors();
 }
 
-module.exports = { presentNumbers, pickedNumber, readFortune, fortuneTeller }
+module.exports = { pickedNumber, readFortune, fortuneTeller }

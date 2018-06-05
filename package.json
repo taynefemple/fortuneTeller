@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "Schoolyard Fortune Teller at the command line",
   "main": "fortunes.js",
+  "scripts": {
+    "start": "node fortunes.js"
+  },
   "author": "Wayne Temple",
   "license": "MIT",
   "dependencies": {
