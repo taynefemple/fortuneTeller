@@ -10,14 +10,19 @@ const numbers = {
 
 // hard code these for now...in future generate a ton and randomly present
 const fortunes = {
-  1: chalk.green('Your startup will fail after an initial meteoric rise. Don\'t worry though, you\'ll have your adderall addiction to keep you busy\n'),
-  2: chalk.green('Sadly your death is imminent. LOOK OUT BEHIND YOU!\n'),
-  3: chalk.green('I have lifted the gypsy curse. Now go eat a sandwich already.\n'),
-  4: chalk.green('You learn from your mistakes...you will learn a lot today\n'),
-  5: chalk.green('You are a 404 soul...lost, Lost, LOST I tell you!\n'),
-  6: chalk.green('It doesn\'t take a fortune teller to tell you to lay off the food fattie\n'),
-  7: chalk.green('You laugh now, wait \'til you get home.\n'),
-  8: chalk.green('Self pleasure is the answer. Rejoice and find what\'s inside you. You know that means masturbation, right?\n')
+  1: chalk.green('\n Your startup will fail after an initial meteoric rise.\n Don\'t worry though, you\'ll have your adderall addiction to keep you busy\n'),
+  2: chalk.green('\n Sadly your death is imminent.\n LOOK OUT BEHIND YOU!\n'),
+  3: chalk.green('\n I have lifted the gypsy curse.\n Now go eat a sandwich already.\n'),
+  4: chalk.green('\n You learn from your mistakes...\n you will learn a lot today\n'),
+  5: chalk.green('\n Same old song, just a drop of water in an endless sea\n All we do crumbles to the ground though we refuse to see\n Dust in the wind\n All we are is dust in the wind\n Oh, ho, ho\n'),
+  6: chalk.green('\n Do not show up to the bike rack after school on Wednesday.\n That kid is going to beat your ass.'),
+  7: chalk.green('\n You laugh now, wait \'til you get home.\n'),
+  8: chalk.green('\n Self pleasure is the answer.\n Rejoice and find what\'s inside you.\n You know that means masturbation, right?\n'),
+  9: chalk.green('\n I would say your self-loathing isn\'t necessary, but you\'re a terrible human being\n ...sooooooo\n ...yeah'),
+  10: chalk.green('\n Time to buy a lotto ticket, it\'s your lucky day!'),
+  11: chalk.green('\n You are a 404 soul...\n lost,\n Lost,\n LOST I tell you!\n'),
+  12: chalk.green('\n I got nothin\' for ya\'.\n Go take some mushrooms and run around in the woods.\n You\'ll find more answers that way...\n'),
+  13: chalk.green('\n It doesn\'t take a fortune teller to tell you to lay off the food fattie\n')
 };
 
 module.exports = { colors, colorStrings, numbers, fortunes }
