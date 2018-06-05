@@ -24,8 +24,11 @@ const pickedNumber = (num) => {
         firstTime();
       })
     } else {
-      rl.question('Select a number for your ' + chalk.green('fortune: ') + sel + '\n', (chosen) => {
-        readFortune(chosen)
+      rl.question('Select a number to reveal your ' + chalk.green('fortune: ') + sel + '\n', (chosen) => {
+        player.play('./assets/clip2.mp3', function (err) {
+          if (err) throw err
+        })
+        setTimeout(() => readFortune(chosen), 3000)
       })
     }
   }
