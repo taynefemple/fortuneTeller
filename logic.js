@@ -13,6 +13,8 @@ const readFortune = (num) => {
   rl.close();
 };
 
+// TODO -- refactor pickedNumber for DRY ==> readFortune function, .includes function
+
 const pickedNumber = (num) => {
   let sel;
   num % 2 === 0 ? sel = numbers.evens : sel = numbers.odds;
@@ -20,16 +22,28 @@ const pickedNumber = (num) => {
   const firstTime = () => {
     if (!counter) {
       rl.question('Pick a number: ' + sel.join(', ') + '\n', (chosen) => {
-        counter = !counter;
-        chosen % 2 === 0 ? sel = numbers.evens : sel = numbers.odds;
-        firstTime();
+        if (sel.includes(+chosen)) {
+          counter = !counter;
+          chosen % 2 === 0 ? sel = numbers.evens : sel = numbers.odds;
+          firstTime();
+        }
+        else {
+          console.log(chalk.red('That number is not inscribed! Cthulhu grows angry...'));
+          firstTime();
+        }
       })
     } else {
       rl.question('Select a number to reveal your ' + chalk.green('fortune: ') + sel.join(', ') + '\n', (chosen) => {
-        player.play('./assets/clip2.mp3', function (err) {
-          if (err) throw err
-        })
-        setTimeout(() => readFortune(chosen), 3000)
+        if (sel.includes(+chosen)) {
+          player.play('./assets/clip2.mp3', function (err) {
+            if (err) throw err
+          })
+          setTimeout(() => readFortune(chosen), 3000)
+        }
+        else {
+          console.log(chalk.red('C\'mon! Just pick a damn number!'));
+          firstTime();
+        }
       })
     }
   }
@@ -42,7 +56,7 @@ const presentColors = () => {
       pickedNumber(color.length);
     }
     else {
-      console.log('That color is not inscribed! Do not anger the spirits!');
+      console.log(chalk.red('That color is not inscribed! Do not anger the spirits!'));
       presentColors();
     }
   })
