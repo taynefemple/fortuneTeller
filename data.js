@@ -22,7 +22,12 @@ const fortunes = {
   10: chalk.green('\n Time to buy a lotto ticket, it\'s your lucky day!'),
   11: chalk.green('\n You are a 404 soul...\n lost,\n Lost,\n LOST I tell you!\n'),
   12: chalk.green('\n I got nothin\' for ya\'.\n Go take some mushrooms and run around in the woods.\n You\'ll find more answers that way...\n'),
-  13: chalk.green('\n It doesn\'t take a fortune teller to tell you to lay off the food fattie\n')
+  13: chalk.green('\n It doesn\'t take a fortune teller to tell you to lay off the food fattie\n'),
+  14: chalk.green('\n Your resemblance to a muppet will prevent the world from taking you seriously\n'),
+  15: chalk.green('\n Whoever smelt it dealt it. I\'m looking at you, pal... \n'),
+  16: chalk.green('\n Fuck Trump\n'),
+  17: chalk.green('\n Game over, man. Game over! What the fuck are we gonna do now? \n'),
+  18: chalk.green('\n Jordan is the best of all time. Lebron? What\'s wrong with you?\n'),
 };
 
 module.exports = { colors, colorStrings, numbers, fortunes }
